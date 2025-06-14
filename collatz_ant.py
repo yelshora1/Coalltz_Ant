@@ -1,4 +1,4 @@
-# Coalltz Ant Simulation
+# Collatz Ant Simulation
 
 """Core logic for the Collatz Ant simulation."""
 
@@ -80,7 +80,7 @@ def simulate(start_value: int, steps: int) -> Iterable[Tuple[Position, int]]:
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Coalltz Ant simulation")
+    parser = argparse.ArgumentParser(description="Collatz Ant simulation")
     parser.add_argument("start", type=int, help="Starting value (N0)")
     parser.add_argument("-s", "--steps", type=int, default=20, help="Number of steps to simulate")
     args = parser.parse_args()
