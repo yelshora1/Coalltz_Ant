@@ -42,4 +42,6 @@ Both of these examples are beautiful illustrations of emergent behavior from see
 
 Use `python3 coalltz_ant.py <start_value> -s <steps>` to run the simulation. The script prints each step with the current position, value and cell color.
 
+To watch the ant move on a scrollable grid, run `python3 visuals.py <start_value> -s <steps>`.
+
 
