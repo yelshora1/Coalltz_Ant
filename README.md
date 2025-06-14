@@ -38,8 +38,18 @@ I combined this with Langton's ant, basically its an ant on an infinite white gr
 
 Both of these examples are beautiful illustrations of emergent behavior from seemingly simple processes. What this repo aims to do is show the Coalltz conjecture in a similar way that Langton's ant is illustrated.
 
+
 ## Running the simulation
 
 Use `python3 coalltz_ant.py <start_value> -s <steps>` to run the simulation. The script prints each step with the current position, value and cell color.
 
+To watch the ant move on a scrollable grid, run `python3 visuals.py <start_value> -s <steps>`.
+Each cell displays its computed value and the text automatically shrinks so it always fits inside the square. Use the mouse wheel to zoom in or out.
+Hold the `Ctrl` key while scrolling to move vertically and hold `Shift` for horizontal movement. Drag with the left mouse button to pan around the grid. Press `t` to cycle through animation speeds. The viewer listens for mouse-wheel events globally so zoom works across platforms and now supports unlimited zoom in either direction.
+
+You can also set the animation speed from the command line with `--speed` to specify steps per second (overriding `-d`):
+
+```bash
+python3 visuals.py 124 -s 600 --speed 50
+```
 
