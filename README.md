@@ -1,7 +1,7 @@
-# Coalltz_Ant
-Langton's ant meets Coalltz Conjecture
+# Collatz's Ant
+Langton's ant meets Collatz Conjecture
 
-I got this idea after I watched a video on Langton's ant and the Coalltz Conjecture, and I decided to create this. Here is how it works:
+I got this idea after I watched a video on Langton's ant and the Collatz Conjecture, and I decided to create this. Here is how it works:
 - The ant starts in one cube in a infinite grid
 - The starting cube has a value of N0, determined by YOU the user
 - If N is an odd number, the ant moves to a block 90 degrees to the left. It then prints the value 3N+1 on that block. The algo keeps going in this way for eternity
@@ -32,16 +32,16 @@ Example:
 -   2, right. 2/2=1
 -   1, left. wait.........
 
-What you just noticed (4, 2, 1 loop) is the crux of what is called the Coalltz Conjecture. It states that no matter what number you use, even up to 2^68 (this has been tested by brute force), the numbers will ALWAYS lead to the 4, 2, 1 loop. However, we still cannot find a reason for this, nor can we prove it yet.
+What you just noticed (4, 2, 1 loop) is the crux of what is called the Collatz Conjecture. It states that no matter what number you use, even up to 2^68 (this has been tested by brute force), the numbers will ALWAYS lead to the 4, 2, 1 loop. However, we still cannot find a reason for this, nor can we prove it yet.
 
 I combined this with Langton's ant, basically its an ant on an infinite white grid. At a white square, it turns 90 degrees clockwise, flips the color of it's current square, and moves forward one unit. At a black square, instead of clockwise, it does the same thing counterclockwise.
 
-Both of these examples are beautiful illustrations of emergent behavior from seemingly simple processes. What this repo aims to do is show the Coalltz conjecture in a similar way that Langton's ant is illustrated.
+Both of these examples are beautiful illustrations of emergent behavior from seemingly simple processes. What this repo aims to do is show the collatz conjecture in a similar way that Langton's ant is illustrated.
 
 
 ## Running the simulation
 
-Use `python3 coalltz_ant.py <start_value> -s <steps>` to run the simulation. The script prints each step with the current position, value and cell color.
+Use `python3 collatz_ant.py <start_value> -s <steps>` to run the simulation. The script prints each step with the current position, value and cell color.
 
 To watch the ant move on a scrollable grid, run `python3 visuals.py <start_value> -s <steps>`.
 Each cell displays its computed value and the text automatically shrinks so it always fits inside the square. Use the mouse wheel to zoom in or out.
