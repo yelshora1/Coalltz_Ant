@@ -37,3 +37,9 @@ What you just noticed (4, 2, 1 loop) is the crux of what is called the Coalltz C
 I combined this with Langton's ant, basically its an ant on an infinite white grid. At a white square, it turns 90 degrees clockwise, flips the color of it's current square, and moves forward one unit. At a black square, instead of clockwise, it does the same thing counterclockwise.
 
 Both of these examples are beautiful illustrations of emergent behavior from seemingly simple processes. What this repo aims to do is show the Coalltz conjecture in a similar way that Langton's ant is illustrated.
+
+## Running the simulation
+
+Use `python3 coalltz_ant.py <start_value> -s <steps>` to run the simulation. The script prints each step with the current position, value and cell color.
+
+
