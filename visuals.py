@@ -3,7 +3,7 @@
 import argparse
 import tkinter as tk
 
-from coalltz_ant import CollatzAnt
+from collatz_ant import CollatzAnt
 
 BASE_CELL_SIZE = 20
 DELAY = 200  # milliseconds between steps
