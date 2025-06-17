@@ -104,10 +104,13 @@ class CollatzAnt:
     steps_taken: int = 0
     loop_count: int = 0
 
+
     def __post_init__(self) -> None:
         self.grid[self.position] = self.start_value
         if self.version == "regular":
             self.orientation_mod = 4
+            color = self.grid[self.position] % 2
+            self._state_history[(self.position, self.orientation, color)] = 0
         elif self.version == "hexagonal":
             self.orientation_mod = 6
         else:
