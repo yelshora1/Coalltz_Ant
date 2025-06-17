@@ -11,8 +11,8 @@ INITIAL_EXTENT = 500  # initial half-size of the scroll region
 
 
 class AntVisualizer:
-    def __init__(self, start_value: int, steps: int |None, delay: int = DELAY) -> None:
-        self.ant = CollatzAnt(start_value)
+    def __init__(self, start_value: int, steps: int |None, delay: int = DELAY, version: str = "regular") -> None:
+        self.ant = CollatzAnt(start_value, version=version)
         self.steps = steps
         self.delay = delay
         self.delay_options = [50, 100, 200, 400, 800]
@@ -178,13 +178,19 @@ def main() -> None:
     parser.add_argument("-s", "--steps", type=int, help="Number of steps to simulate")
     parser.add_argument("-d", "--delay", type=int, default=DELAY, help="Delay between steps in ms")
     parser.add_argument("--speed", type=float, help="Animation speed in steps per second")
+    parser.add_argument(
+        "--version",
+        choices=["regular", "hexagonal"],
+        default="regular",
+        help="Simulation mode to use",
+    )
     args = parser.parse_args()
 
     delay = args.delay
     if args.speed is not None:
         delay = int(1000 / args.speed) if args.speed > 0 else 0
 
-    AntVisualizer(args.start, args.steps, delay).run()
+    AntVisualizer(args.start, args.steps, delay, args.version).run()
 
 
 if __name__ == "__main__":
