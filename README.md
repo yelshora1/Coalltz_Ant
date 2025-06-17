@@ -41,9 +41,9 @@ Both of these examples are beautiful illustrations of emergent behavior from see
 
 ## Running the simulation
 
-Use `python3 collatz_ant.py <start_value> -s <steps>` to run the simulation. The script prints each step with the current position, value and cell color.
+Use `python3 collatz_ant.py <start_value> -s <steps> [--version MODE]` to run the simulation. The script prints each step with the current position, value and cell color. `MODE` can be `regular` (default) or `hexagonal`.
 
-To watch the ant move on a scrollable grid, run `python3 visuals.py <start_value> -s <steps>`.
+To watch the ant move on a scrollable grid, run `python3 visuals.py <start_value> -s <steps> [--version MODE]`.
 Each cell displays its computed value and the text automatically shrinks so it always fits inside the square. Use the mouse wheel to zoom in or out.
 Hold the `Ctrl` key while scrolling to move vertically and hold `Shift` for horizontal movement. Drag with the left mouse button to pan around the grid. Press `t` to cycle through animation speeds. The viewer listens for mouse-wheel events globally so zoom works across platforms and now supports unlimited zoom in either direction.
 
