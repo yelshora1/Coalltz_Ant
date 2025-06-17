@@ -38,6 +38,8 @@ class AntVisualizer:
         self.root.grid_columnconfigure(0, weight=1)
         self.speed_label = tk.Label(self.root)
         self.speed_label.grid(row=2, column=0, columnspan=2)
+        self.loop_label = tk.Label(self.root, text="Loops observed: 0")
+        self.loop_label.grid(row=3, column=0, columnspan=2, sticky="e")
 
         extent = INITIAL_EXTENT
         self.canvas.config(scrollregion=(-extent, -extent, extent, extent))
@@ -164,6 +166,8 @@ class AntVisualizer:
         pos, val = self.ant.step()
         self.draw_cell(pos, val)
         self.draw_ant()
+        if self.ant.version == "regular":
+            self.loop_label.config(text=f"Loops observed: {self.ant.loop_count}")
         self.update_scrollregion()
         self.root.after(self.delay, self.step)
 
