@@ -56,11 +56,16 @@ class CollatzAnt:
     position: Position = (0, 0)
     orientation: int = 0  # orientation index
     orientation_mod: int = field(init=False)
+    steps_taken: int = 0
+    loop_count: int = 0
+    _state_history: Dict[Tuple[Position, int, int], int] = field(default_factory=dict, init=False)
 
     def __post_init__(self) -> None:
         self.grid[self.position] = self.start_value
         if self.version == "regular":
             self.orientation_mod = 4
+            color = self.grid[self.position] % 2
+            self._state_history[(self.position, self.orientation, color)] = 0
         elif self.version == "hexagonal":
             self.orientation_mod = 6
         else:
@@ -82,6 +87,13 @@ class CollatzAnt:
 
         self.position = move_forward(self.position, self.orientation, self.version)
         self.grid[self.position] = new_value
+        self.steps_taken += 1
+
+        if self.version == "regular":
+            state = (self.position, self.orientation, new_value % 2)
+            if state in self._state_history:
+                self.loop_count += 1
+            self._state_history[state] = self.steps_taken
         return self.position, new_value
 
     def history(self, steps: int) -> Iterable[Tuple[Position, int]]:
@@ -111,12 +123,16 @@ def main():
     )
     args = parser.parse_args()
 
-    for step, (pos, val) in enumerate(simulate(args.start, args.steps, args.version)):
+    ant = CollatzAnt(args.start, version=args.version)
+    for step, (pos, val) in enumerate(ant.history(args.steps)):
         x, y = pos
         color = "black" if val % 2 else "white"
         print(
             f"{step:4d}: position=({x:3d},{y:3d}) value={val:>10} color={color}"
         )
+
+    if args.version == "regular":
+        print(f"Loops observed: {ant.loop_count}")
 
 
 if __name__ == "__main__":
