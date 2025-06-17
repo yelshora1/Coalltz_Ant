@@ -167,6 +167,7 @@ class AntVisualizer:
         self.draw_cell(pos, val)
         self.draw_ant()
         if self.ant.version == "regular":
+            self.ant.update_loop_count()
             self.loop_label.config(text=f"Loops observed: {self.ant.loop_count}")
         self.update_scrollregion()
         self.root.after(self.delay, self.step)

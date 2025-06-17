@@ -53,3 +53,7 @@ You can also set the animation speed from the command line with `--speed` to spe
 python3 visuals.py 124 -s 600 --speed 50
 ```
 
+At the end of a run in regular mode, the program analyzes the grid to detect
+closed loops in the ant's path. The total number of loops is printed to the
+console and shown in the bottom-right corner of the visualizer.
+
