@@ -61,7 +61,7 @@ console and shown in the bottom-right corner of the visualizer.
 
 If you are planning to use this for any research paper or study, please cite me as:
 
-@software{elshora2025project,
+@software {elshora2025project,
   author = {Yousef Elshora},
   title = {Collatz_Ant},
   year = {2025},
