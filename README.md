@@ -57,3 +57,14 @@ At the end of a run in regular mode, the program analyzes the grid to detect
 closed loops in the ant's path. The total number of loops is printed to the
 console and shown in the bottom-right corner of the visualizer.
 
+# How to cite this project
+
+If you are planning to use this for any research paper or study, please cite me as:
+
+@software{elshora2025project,
+  author = {Yousef Elshora},
+  title = {Collatz_Ant},
+  year = {2025},
+  version = {0.0},
+  url = {https://github.com/yelshora1/Collatz_Ant},
+}
